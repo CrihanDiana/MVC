@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b3ec54bf11.js" crossorigin="anonymous"></script>
+</head>
+<body class="container">
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Go edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person : ${people}">
+        <td th:text="${person.getName()}"></td>
+        <td th:text="${person.getAge()}"></td>
+        <td><a th:href="@{/people/{id}(id=${person.getId()})}"><i class="far fa-edit"></i></a></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/people/new" class="btn btn-info">Create new person</a>
+</body>
+</html>
